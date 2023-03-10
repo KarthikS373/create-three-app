@@ -1,0 +1,38 @@
+{
+  "name": "create-three-app",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --ext .ts && yarn prettier --write .",
+    "lint-staged": "lint-staged",
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky install",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.0",
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4"
+  },
+  "lint-staged": {
+    "*.+(js|jsx|ts|tsx)": [
+      "eslint --fix"
+    ],
+    "*.{js|json|yml|yaml|css|scss|ts|tsx|md}": [
+      "prettier --write"
+    ]
+  }
+}
