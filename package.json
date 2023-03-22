@@ -1,9 +1,12 @@
 {
   "name": "create-three-app",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "build/index.js",
   "license": "MIT",
   "scripts": {
+    "start": "npx tsc --build && yarn link && yarn create three-app",
+    "dev": "yarn ts-node --esm index.ts",
+    "tsc:dev": "tsc -w --outDir build",
     "lint": "eslint . --ext .ts && yarn prettier --write .",
     "lint-staged": "lint-staged",
     "typecheck": "tsc --noEmit",
@@ -11,7 +14,10 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "chalk": "4.1.2",
     "fs-extra": "^11.1.0",
+    "open": "^9.0.0",
+    "prompts": "^2.4.2",
     "typescript": "^4.9.5"
   },
   "devDependencies": {
@@ -25,7 +31,8 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
